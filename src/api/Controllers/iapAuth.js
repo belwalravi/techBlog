@@ -12,7 +12,7 @@ const performAuth = asyncErrorWrapper(async (req, res, next) => {
 
     const expectedAudience = process.env.IAP_SIGNED_HEADER;
 
-    // console.log("--> cheking for verify_iap_jwt (performAuth)");
+    console.log("--> cheking for verify_iap_jwt (performAuth)");
     // console.log(req.header("x-goog-iap-jwt-assertion"))
 
     try {
