@@ -23,7 +23,6 @@ const performAuth = asyncErrorWrapper(async (req, res, next) => {
         }
 
         const iapAccessToken = getAccessTokenJWTFromHeader(req); //iap access token
-        console.log("--> iapAccess token : ", iapAccessToken);
 
         const client = new OAuth2Client();
         const response = await client.getIapPublicKeys(); //for pubic key
@@ -34,6 +33,7 @@ const performAuth = asyncErrorWrapper(async (req, res, next) => {
             ["https://cloud.google.com/iap"] //certs_url
         );
 
+        console.log("-> jwt payload decoded ",decoded_iap_jwt)
         var userEmail = decoded_iap_jwt.payload.gcip.email;
 
         const user = await User.findOne({ email: userEmail });
