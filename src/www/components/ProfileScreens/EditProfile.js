@@ -82,6 +82,7 @@ const EditProfile = () => {
                                 <input type="email"
                                     id="email" placeholder="Email  " name='email'
                                     value={email}
+                                    disabled={true}
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
                                 <label htmlFor="email">E-mail</label>
