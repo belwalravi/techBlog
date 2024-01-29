@@ -26,7 +26,7 @@ const EditProfile = () => {
         formdata.append("username", username)
         formdata.append("email", email)
         formdata.append("photo", photo)
-        formdata.append("username", id)
+        formdata.append("username",id)
 
         try {
             const { data } = await axios.post("/user/editProfile", formdata, config)
@@ -50,7 +50,7 @@ const EditProfile = () => {
         setEmail(activeUser.email)
         setPreviousPhoto(activeUser.photo)
         setPhoto(activeUser.photo)
-        setId(activeUser.id)
+        setId(activeUser._id)
         setTimeout(() => {
             setLoading(false)
         }, 1050)
