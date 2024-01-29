@@ -19,6 +19,7 @@ const AuthContextProvider = props => {
       try {
         const { data } = await axios.get("/auth/private", config);
         setActiveUser(data.user)
+        console.log(">>A",activeUser)
       }
       catch (error) {
         localStorage.removeItem("authToken");
