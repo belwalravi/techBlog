@@ -16,7 +16,7 @@ const editProfile = asyncErrorWrapper(async (req, res, next) => {
 
     const { email, username } = req.body
     console.log(req.body,"<<");
-    const user = await User.findByIdAndUpdate(req.user.id, {
+    const user = await User.findByIdAndUpdate(req.body.id, {
         email, username,
         photo: req.savedUserPhoto
     },
