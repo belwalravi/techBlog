@@ -14,6 +14,7 @@ const EditProfile = () => {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [photo, setPhoto] = useState('')
+    const [id, setId] = useState("")
     const [previousPhoto, setPreviousPhoto] = useState('')
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
@@ -25,6 +26,7 @@ const EditProfile = () => {
         formdata.append("username", username)
         formdata.append("email", email)
         formdata.append("photo", photo)
+        formdata.append("username", id)
 
         try {
             const { data } = await axios.post("/user/editProfile", formdata, config)
@@ -43,10 +45,12 @@ const EditProfile = () => {
     }
 
     useEffect(() => {
+        console.log(">>>>>? ",activeUser)
         setUsername(activeUser.username)
         setEmail(activeUser.email)
         setPreviousPhoto(activeUser.photo)
         setPhoto(activeUser.photo)
+        setId(activeUser.id)
         setTimeout(() => {
             setLoading(false)
         }, 1050)
