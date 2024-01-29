@@ -15,7 +15,7 @@ const getAccessTokenJWTFromHeader = (req) => {
 const verify = async(req)=>{
     if(req.headers.authorization && req.headers.authorization.startsWith("Bearer"))
     {   
-        console.log("--> verify_jwt_token")
+        // console.log("--> verify_jwt_token")
 
         if(req.headers.authorization.split(" ")[1]=="null"){         
             return false
