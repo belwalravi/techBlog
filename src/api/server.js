@@ -22,7 +22,7 @@ app.use("/", IndexRoute);
 
 app.use(customErrorHandler);
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.SERVER;
 
 app.use(express.static(path.join(__dirname, "public"))); //
 

@@ -110,11 +110,7 @@ const EditProfile = () => {
                                             setPhoto(e.target.files[0])
                                         }}
                                     />
-
-
                                 </div>
-
-
                                 <div class="currentImage">
                                     <div class="absolute">
                                         Currently Image
@@ -126,17 +122,7 @@ const EditProfile = () => {
 
                             <button type='submit' className='editprofile-btn'
                             >Edit Profile </button>
-
-
-
                         </form>
-
-
-
-
-
-
-
                     </div>
             }
         </>

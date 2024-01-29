@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import {redirect } from "react-router-dom";
 
 export const AuthContext = React.createContext();
-
 const AuthContextProvider = props => {
 
   const [activeUser, setActiveUser] = useState({})
@@ -15,21 +15,18 @@ const AuthContextProvider = props => {
 
 
   useEffect(() => {
-
     const controlAuth = async () => {
       try {
         const { data } = await axios.get("/auth/private", config);
         setActiveUser(data.user)
       }
       catch (error) {
-
         localStorage.removeItem("authToken");
-
+        redirect("/unauthorized") //#
         setActiveUser({})
       }
     };
     controlAuth()
-
   }, [])
 
   return (

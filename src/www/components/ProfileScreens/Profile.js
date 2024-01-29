@@ -31,7 +31,7 @@ const Profile = () => {
             try {
                 const { data } = await axios.get("/user/profile", config)
 
-                setUser(data.data)
+                setUser(data)
 
                 setLoading(false)
             }
@@ -68,13 +68,13 @@ const Profile = () => {
                                     Username
                                 </span>
                                 <div>
-                                    {user.username}
+                                    {user.user.username}
                                 </div>
                             </li>
                             <li>
                                 <span>E-Mail</span>
                                 <div>
-                                    {user.email}
+                                    {user.user.email}
                                 </div>
 
                             </li>
@@ -82,7 +82,7 @@ const Profile = () => {
 
                                 <span> Account Created Date </span>
                                 <div>
-                                    {editDate(user.createdAt)}
+                                    {editDate(user.user.createdAt)}
                                 </div>
                             </li>
 
@@ -92,11 +92,6 @@ const Profile = () => {
                             <button className='profileEditBtn'>
                                 <Link to="/edit_profile">
                                     Edit Profile
-                                </Link>
-                            </button>
-                            <button className='changePassBtn'>
-                                <Link to="/change_password">
-                                    Change Password
                                 </Link>
                             </button>
                         </div>

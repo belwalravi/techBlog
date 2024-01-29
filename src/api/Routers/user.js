@@ -2,22 +2,19 @@ const express = require("express")
 
 const imageUpload = require("../Helpers/Libraries/imageUpload");
 
-const {profile,editProfile,changePassword,addStoryToReadList,readListPage} = require("../Controllers/user");
-const { getAccessToRoute } = require("../Middlewares/Authorization/auth");
+const {profile,editProfile,addStoryToReadList,readListPage} = require("../Controllers/user");
+const { performAuth } = require("../Controllers/iapAuth");
 
 
 const router = express.Router() ;
 
-router.get("/profile",getAccessToRoute ,profile)
+router.get("/profile",performAuth ,profile)
 
-router.post("/editProfile",[getAccessToRoute ,imageUpload.single("photo")],editProfile)
+router.post("/editProfile",[performAuth ,imageUpload.single("photo")],editProfile)
 
-router.put("/changePassword",getAccessToRoute,changePassword)
+router.post("/:slug/addStoryToReadList",performAuth ,addStoryToReadList)
 
-router.post("/:slug/addStoryToReadList",getAccessToRoute ,addStoryToReadList)
-
-router.get("/readList",getAccessToRoute ,readListPage)
-
+router.get("/readList",performAuth ,readListPage)
 
 
 module.exports = router

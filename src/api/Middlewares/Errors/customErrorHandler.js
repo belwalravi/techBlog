@@ -25,10 +25,11 @@ const customErrorHandler = (err,req,res,next)=> {
     }
     if (err.name === "JsonWebTokenError") {
         err = new CustomError("Jwt malformed  ", 401)
-
     }
 
     console.log("Custom Error Handler => ", err.name, err.message, err.statusCode)
+    console.log("--> ",err.statusCode)
+    // console.log("err stack >> ", err)
   
     return res.status(err.statusCode||500)
     .json({

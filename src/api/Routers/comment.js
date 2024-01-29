@@ -1,15 +1,13 @@
 const express = require("express")
 
-const { getAccessToRoute } = require("../Middlewares/Authorization/auth");
-
 const { addNewCommentToStory ,getAllCommentByStory,commentLike ,getCommentLikeStatus} = require("../Controllers/comment")
 
 const { checkStoryExist } = require("../Middlewares/database/databaseErrorhandler");
+const { performAuth } = require("../Controllers/iapAuth");
 
 const router = express.Router() ;
 
-
-router.post("/:slug/addComment",[getAccessToRoute,checkStoryExist] ,addNewCommentToStory)
+router.post("/:slug/addComment",[performAuth,checkStoryExist] ,addNewCommentToStory)
 
 router.get("/:slug/getAllComment",getAllCommentByStory)
 

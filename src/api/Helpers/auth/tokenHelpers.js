@@ -15,15 +15,12 @@ const getAccessTokenFromHeader = (req) => {
     return access_token
 }
 
-const sendToken = (user,statusCode ,res)=>{
-
-    const token = user.generateJwtFromUser()
-
+const sendToken = (token,statusCode ,res ,user={})=>{
+    // console.log("token sent")
     return res.status(statusCode).json({
-        success: true ,
-        token
+        user,
+        success: true 
     })
-
 }
 
 module.exports ={

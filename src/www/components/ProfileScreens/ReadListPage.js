@@ -55,13 +55,13 @@ const ReadListPage = () => {
 
                     <div className="readList-top-block">
 
-                        <img src={`/userPhotos/${activeUser.photo}`} alt={activeUser.username} />
-
+                        {/* <img src={`/userPhotos/${activeUser.photo}`} alt={activeUser.username} /> */}
 
                         <div className='activeUser-info-wrapper'>
 
                             <b>
-                                {activeUser.username}
+                                {/* {activeUser.username} */}
+                                {JSON.stringify(readList)}
                             </b>
 
                             <div>
@@ -70,7 +70,7 @@ const ReadListPage = () => {
                                 </span>
                                 <span>-</span>
                                 <span>
-                                    {activeUser.readListLength} stories
+                                    {/* {activeUser.readListLength} stories */}
                                 </span>
                                 <i>
                                     <AiFillLock />
@@ -85,7 +85,7 @@ const ReadListPage = () => {
 
                     </div>
 
-                    <div className="readList-story-wrapper">
+                    {/* <div className="readList-story-wrapper">
 
                         {readList.length !== 0 ?
                             <>
@@ -107,7 +107,7 @@ const ReadListPage = () => {
                         }
 
 
-                    </div>
+                    </div> */}
 
                 </div>
             }
