@@ -44,7 +44,7 @@ const fileFilter =(req,file,cb ) => {
     allowedMimeTypes = ["image/jpeg","image/jpg","image/png","image/gif"]
 
     if (!allowedMimeTypes.includes(file.mimetype)) {
-        return (new CustomError("Please provide a valid image file ",400),null )
+        return (new CustomError("Please provide a valid image file, please check ",400),null )
     }
     
     cb(null , true ) ;
