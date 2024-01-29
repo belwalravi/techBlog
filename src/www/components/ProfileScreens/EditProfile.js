@@ -26,7 +26,7 @@ const EditProfile = () => {
         formdata.append("username", username)
         formdata.append("email", email)
         formdata.append("photo", photo)
-        formdata.append("username",id)
+        formdata.append("id",id)
 
         try {
             const { data } = await axios.post("/user/editProfile", formdata, config)
