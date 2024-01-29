@@ -10,7 +10,7 @@ const router = express.Router() ;
 
 router.get("/profile",performAuth ,profile)
 
-router.post("/editProfile",[performAuth ,imageUpload.single("photo")],editProfile)
+router.post("/editProfile",[imageUpload.single("photo")],editProfile)
 
 router.post("/:slug/addStoryToReadList",performAuth ,addStoryToReadList)
 
