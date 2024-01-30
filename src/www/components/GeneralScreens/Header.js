@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import SearchForm from './SearchForm';
 import '../../Css/Header.css'
 import { RiPencilFill } from 'react-icons/ri'
@@ -58,7 +58,7 @@ const Header = () => {
     const handleLogout = () => {
         localStorage.removeItem("authToken");
         // if (process.env.IAP_ENABLED)
-            navigate('/?gcp-iap-mode=GCIP_SIGNOUT')
+            redirect('/?gcp-iap-mode=GCIP_SIGNOUT')
     };
 
     return (
