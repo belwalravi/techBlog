@@ -29,6 +29,7 @@ const AddStory = () => {
     }
 
     const handleSubmit = async (e) => {
+        console.log("add post")
         e.preventDefault();
         const formdata = new FormData()
         formdata.append("title", title)
@@ -105,7 +106,7 @@ const AddStory = () => {
                     />
                 </div>
                 <button type='submit' disabled={image ? false : true} className={image ? 'addStory-btn' : 'dis-btn'}
-                >Publish </button>
+                >Publish Now </button>
             </form>
 
         </div>
