@@ -7,7 +7,9 @@ const { performAuth } = require("../Controllers/iapAuth");
 
 const router = express.Router() ;
 
-router.post("/:slug", checkStoryExist, detailStory)
+// router.post("/:slug", checkStoryExist, detailStory)
+router.post("/:slug", detailStory)
+
 
 router.get("/getAllStories",getAllStories)
 
