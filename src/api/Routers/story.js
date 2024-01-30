@@ -7,14 +7,14 @@ const { performAuth } = require("../Controllers/iapAuth");
 
 const router = express.Router() ;
 
+router.post("/addstory" ,addStory)//performAuth
+
 // router.post("/:slug", checkStoryExist, detailStory)
-router.post("/:slug", detailStory)
 
 
 router.get("/getAllStories",getAllStories)
 
 // router.post("/addstory" ,[imageupload.single("image")],addStory)//performAuth
-router.post("/addstory" ,addStory)//performAuth
 
 
 router.post("/:slug/like",[performAuth,checkStoryExist] ,likeStory)
@@ -25,5 +25,6 @@ router.put("/:slug/edit",[performAuth,checkStoryExist,checkUserAndStoryExist, im
 
 router.delete("/:slug/delete",[performAuth,checkStoryExist,checkUserAndStoryExist] ,deleteStory)
 
+router.post("/:slug", detailStory)
 
 module.exports = router
