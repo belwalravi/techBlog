@@ -15,12 +15,6 @@ const profile = asyncErrorWrapper(async (req, res, next) => {
 const editProfile = asyncErrorWrapper(async (req, res, next) => {
 
     const { email, username, id } = req.body
-    console.log(req.body,"<< body");
-    console.log(req.body.id)
-    // const user = await User.findByIdAndUpdate(id, {
-    //     email, username,
-    //     photo: req.savedUserPhoto
-    // },
         const user = await User.findByIdAndUpdate(req.user.id, {
             email, username,
             photo: req.savedUserPhoto
@@ -43,7 +37,6 @@ const addStoryToReadList = asyncErrorWrapper(async (req, res, next) => {
 
     const { slug } = req.params
     const { activeUser } = req.body;
-    console.log("AddStoryToReadList Controller >> ", activeUser)
 
     const story = await Story.findOne({ slug })
 
