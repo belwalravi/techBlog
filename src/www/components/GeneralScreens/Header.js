@@ -92,7 +92,6 @@ const Header = () => {
                                     :
                                     <>
                                         <img src={`/userPhotos/${activeUser.photo}`} alt="userPhoto" className='logo_header'/>
-                                        {/* <img src="https://cdn-icons-png.flaticon.com/512/5332/5332306.png" alt="Logo" className='logo_header' /> */}
                                     </>
                                 }
                                 <div className="sub-profile-wrap  ">
