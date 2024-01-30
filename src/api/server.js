@@ -20,6 +20,11 @@ app.use(cors());
 
 app.use("/", IndexRoute);
 
+app.use((req, res, next) => {
+	console.log(`API requested: ${req.method} ${req.url}`);
+	next(); // Pass control to the next middleware or route handler
+  });
+
 app.use(customErrorHandler);
 
 const PORT = process.env.SERVER;
