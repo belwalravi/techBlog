@@ -29,9 +29,11 @@ const AddStory = () => {
         imageEl.current.value = ""
     }
 
-    // useEffect(()=>{
-
-    // },[title, image, content])
+    useEffect(()=>{  //added
+        setTitle(title)
+        setImage(image)
+        setContent(content)
+    },[title, image, content])
 
     const handleSubmit = async (e) => {
         console.log("add post")
@@ -56,7 +58,6 @@ const AddStory = () => {
         catch (error) {
             setTimeout(() => {
                 setError('')
-
             }, 7000)
             setError(error.response.data.error)
 
