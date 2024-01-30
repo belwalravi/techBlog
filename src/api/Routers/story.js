@@ -12,7 +12,7 @@ const router = express.Router() ;
 
 // router.post("/:slug", checkStoryExist, detailStory)
 
-router.post("/addstory" ,[imageupload.single("image")], addStory)//performAuth
+router.post("/addstory" ,[authenticator, imageupload.single("image")], addStory)//performAuth
 
 router.get("/getAllStories",getAllStories)
 
