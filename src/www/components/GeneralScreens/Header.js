@@ -51,11 +51,12 @@ const Header = () => {
         }, 1600)
 
     }, [bool])
-    
+
 
     useEffect(()=>{
         if(!auth)
-        navigate('/?gcp-iap-mode=GCIP_SIGNOUT')
+        {   console.log("sign out")
+            navigate('/?gcp-iap-mode=GCIP_SIGNOUT')}
     },[auth,bool])
 
     const handleLogout = () => {
@@ -100,6 +101,7 @@ const Header = () => {
                                 }
                                 <div className="sub-profile-wrap  ">
                                     <Link className='profile-link' to="/profile"  > <FaUserEdit />  Profile </Link>
+                                    <a href='/?gcp-iap-mode=GCIP_SIGNOUT'>...</a>
                                     <Link to="/?gcp-iap-mode=GCIP_SIGNOUT" >
                                         <button className='logout-btn' onClick={handleLogout}> <BiLogOut />  Logout</button>
                                     </Link>
