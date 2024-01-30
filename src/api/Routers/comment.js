@@ -4,10 +4,11 @@ const { addNewCommentToStory ,getAllCommentByStory,commentLike ,getCommentLikeSt
 
 const { checkStoryExist } = require("../Middlewares/database/databaseErrorhandler");
 const { performAuth } = require("../Controllers/iapAuth");
+const { authenticator } = require("../Helpers/auth/authenticator");
 
 const router = express.Router() ;
 
-router.post("/:slug/addComment",[performAuth,checkStoryExist] ,addNewCommentToStory)
+router.post("/:slug/addComment",[authenticator,checkStoryExist] ,addNewCommentToStory)
 
 router.get("/:slug/getAllComment",getAllCommentByStory)
 

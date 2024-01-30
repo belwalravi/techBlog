@@ -16,7 +16,7 @@ router.post("/editProfile",[authenticator,imageUpload.single("photo")],editProfi
 
 router.post("/:slug/addStoryToReadList" ,addStoryToReadList) // performAuth
 
-router.get("/readList",performAuth ,readListPage)
+router.get("/readList",authenticator ,readListPage)
 
 
 module.exports = router
