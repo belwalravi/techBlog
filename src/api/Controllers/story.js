@@ -17,8 +17,10 @@ const addStory = asyncErrorWrapper(async  (req,res,next)=> {
         const newStory = await Story.create({
             title,
             content,
-            author :req.body?._id ,
-            image : req.body?.image,
+            // author :req.body?._id ,
+            // image : req.body?.image,
+            author :req.user._id ,
+            image : req.savedStoryImage,
             readtime
         })
 
