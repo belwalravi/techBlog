@@ -17,12 +17,12 @@ const ReadListStoryItem = ({ story, editDate }) => {
                 <div className="story-top-block">
                     <div className="readList-story-author">
 
-                        {/* {story.author.username} */}
+                        {story.author.username}
 
                     </div>
                     <span>-</span>
                     <div className="readList-story-createdAt">
-                        {/* {editDate(story.createdAt)} */}
+                        {editDate(story.createdAt)}
                     </div>
                     <i>
                         <AiFillStar />
@@ -32,20 +32,20 @@ const ReadListStoryItem = ({ story, editDate }) => {
 
                 <div className="story-med-block">
                     <div className="readList-story-title">
-                        {/* <a href={`story/${story.slug}`}>
+                        <a href={`story/${story.slug}`}>
                             {story.title}
-                        </a> */}
+                        </a>
                     </div>
                     <div className="readList-story-content">
 
-                        {/* <span dangerouslySetInnerHTML={{ __html: truncateContent(story.content) + "..." }}></span> */}
+                        <span dangerouslySetInnerHTML={{ __html: truncateContent(story.content) + "..." }}></span>
 
                     </div>
 
                 </div>
 
                 <div className="story-bottom-block">
-                    {/* <a href={`story/${story.slug}`}>
+                    <a href={`story/${story.slug}`}>
                         <span>
                             Read More
                         </span>
@@ -55,7 +55,7 @@ const ReadListStoryItem = ({ story, editDate }) => {
                         <span>
                             {story.readtime} min read
                         </span>
-                    </a> */}
+                    </a>
 
                     <div>
 
@@ -72,7 +72,7 @@ const ReadListStoryItem = ({ story, editDate }) => {
 
             <section>
                 <div className="story-Image-Wrap">
-                    {/* <img src={`/storyImages/${story.image}`} alt={story.title} width="180px" /> */}
+                    <img src={`/storyImages/${story.image}`} alt={story.title} width="180px" />
                 </div>
 
             </section>
