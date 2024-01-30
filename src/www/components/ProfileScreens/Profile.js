@@ -56,10 +56,9 @@ const Profile = () => {
                         <div className="profile-top-wrap">
 
                             <span>
-                                Membership Information
+                                User Information
                             </span>
 
-                            <a href="#!">Close  Account</a>
                         </div>
                         <ul>
 
