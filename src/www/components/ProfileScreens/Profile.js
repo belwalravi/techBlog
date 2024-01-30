@@ -30,7 +30,7 @@ const Profile = () => {
 
             try {
                 const { data } = await axios.get("/user/profile", config)
-
+                console.log("profile > ",data)
                 setUser(data)
 
                 setLoading(false)
@@ -67,13 +67,13 @@ const Profile = () => {
                                     Username
                                 </span>
                                 <div>
-                                    {user.user.username}
+                                    {user.username}
                                 </div>
                             </li>
                             <li>
                                 <span>E-Mail</span>
                                 <div>
-                                    {user.user.email}
+                                    {user.email}
                                 </div>
 
                             </li>
@@ -81,7 +81,7 @@ const Profile = () => {
 
                                 <span> Account Created Date </span>
                                 <div>
-                                    {editDate(user.user.createdAt)}
+                                    {editDate(user.createdAt)}
                                 </div>
                             </li>
 
