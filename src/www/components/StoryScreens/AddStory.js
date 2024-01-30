@@ -11,7 +11,7 @@ import '../../Css/AddStory.css'
 
 const AddStory = () => {
 
-    const { config } = useContext(AuthContext)
+    const { config, activeUser } = useContext(AuthContext)
     const imageEl = useRef(null)
     const editorEl = useRef(null)
     const [image, setImage] = useState('')
@@ -37,7 +37,8 @@ const AddStory = () => {
         setStoryPayload({
             title,
             image,
-            content
+            content,
+            "_id":activeUser._id
         })
     },[title, image, content])
 
