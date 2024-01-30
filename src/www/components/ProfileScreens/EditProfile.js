@@ -45,7 +45,6 @@ const EditProfile = () => {
     }
 
     useEffect(() => {
-        console.log(">>>>>? ",activeUser)
         setUsername(activeUser.username)
         setEmail(activeUser.email)
         setPreviousPhoto(activeUser.photo)

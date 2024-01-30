@@ -45,7 +45,7 @@ const CommentItem = ({ comment, activeUser }) => {
 
 
     const handleCommentLike = async () => {
-        console.log("like comment ıtem ın  basıldı ")
+        // console.log("like comment ıtem ın  basıldı ")
 
         const comment_id = comment._id
 

@@ -2,7 +2,6 @@ const asyncErrorWrapper = require("express-async-handler")
 const { performAuth } = require("./iapAuth");
 
 const getPrivateData = asyncErrorWrapper((req, res, next) => {
-    // console.log("--> getPrivateData")
     performAuth(req, res, next)
 
 })

@@ -27,10 +27,7 @@ const customErrorHandler = (err,req,res,next)=> {
         err = new CustomError("Jwt malformed  ", 401)
     }
 
-    console.log("Custom Error Handler => ", err.name, err.message, err.statusCode)
-    console.log("--> ",err.statusCode)
-    // console.log("err stack >> ", err)
-  
+    console.log("Custom Error Handler => ", err.name, err.message, err.statusCode)  
     return res.status(err.statusCode||500)
     .json({
         success: false  ,

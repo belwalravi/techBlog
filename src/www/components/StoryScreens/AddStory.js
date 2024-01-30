@@ -30,9 +30,6 @@ const AddStory = () => {
     }
 
     useEffect(()=>{  //added
-        // setTitle(title)
-        // setImage(image)
-        // setContent(content)
         console.log("title",title, "image",image,"content",content)
         setStoryPayload({
             title,
@@ -43,7 +40,6 @@ const AddStory = () => {
     },[title, image, content])
 
     const handleSubmit = async (e) => {
-        console.log("add post")
         e.preventDefault();
         const formdata = new FormData()
         formdata.append("title", title)

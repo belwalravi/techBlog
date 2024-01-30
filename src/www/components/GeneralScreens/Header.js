@@ -31,7 +31,6 @@ const Header = () => {
             }
 
             const { data } = await axios.request(config)
-            console.log(data, "<<**")
             localStorage.setItem("authToken", data.token);
             setToken(data.token)
             setTimeout(() => {

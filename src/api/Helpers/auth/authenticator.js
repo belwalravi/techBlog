@@ -12,8 +12,6 @@ const authenticator = asyncErrorWrapper(async (req, res, next) => {
 
     const expectedAudience = process.env.IAP_SIGNED_HEADER;
 
-    console.log("--> cheking jwt user");
-
     try {
         if (!isJWTTokenIncluded(req)) { //checks if token included, returns token or thorws error
             return next(

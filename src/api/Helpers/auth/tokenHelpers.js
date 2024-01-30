@@ -16,7 +16,6 @@ const getAccessTokenFromHeader = (req) => {
 }
 
 const sendToken = (token,statusCode ,res ,user={})=>{
-    // console.log("token sent")
     return res.status(statusCode).json({
         user,
         success: true 
