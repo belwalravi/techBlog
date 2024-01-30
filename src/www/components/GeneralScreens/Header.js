@@ -9,7 +9,6 @@ import { BsBookmarks } from 'react-icons/bs'
 import SkeletonElement from '../Skeletons/SkeletonElement';
 import { AuthContext } from '../../Context/AuthContext';
 import axios from 'axios';
-import Cookies from 'js-cookie';
 
 const Header = () => {
     const bool = localStorage.getItem("authToken") ? true : false
@@ -20,7 +19,6 @@ const Header = () => {
     const navigate = useNavigate()
 
     useEffect(async () => {
-        console.log("activeUser >> ",activeUser)
         try {
             let config = {
                 method: 'post',
@@ -69,6 +67,7 @@ const Header = () => {
                 <Link to="/" className="logo">
                     <h5>
                         DevBlogs
+                        {JSON.stringify(activeUser)}
                     </h5>
                 </Link>
                 <SearchForm />
