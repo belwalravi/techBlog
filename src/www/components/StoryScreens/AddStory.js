@@ -1,4 +1,4 @@
-import React, { useRef, useContext } from 'react'
+import React, { useRef, useContext, useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
@@ -19,6 +19,7 @@ const AddStory = () => {
     const [content, setContent] = useState('')
     const [success, setSuccess] = useState('')
     const [error, setError] = useState('')
+    const [storyPayload, setStoryPayload] = useState(null)
 
     const clearInputs = () => {
         setTitle('')
@@ -28,6 +29,10 @@ const AddStory = () => {
         imageEl.current.value = ""
     }
 
+    // useEffect(()=>{
+
+    // },[title, image, content])
+
     const handleSubmit = async (e) => {
         console.log("add post")
         e.preventDefault();
@@ -35,6 +40,8 @@ const AddStory = () => {
         formdata.append("title", title)
         formdata.append("image", image)
         formdata.append("content", content)
+
+        console.log("formdata >> ",formdata)
 
         try {
             const { data } = await axios.post("/story/addstory", formdata, config)
