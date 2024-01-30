@@ -51,9 +51,12 @@ const Header = () => {
         }, 1600)
 
     }, [bool])
+    
 
-    useEffect(() => {
-    }, [token])
+    useEffect(()=>{
+        if(!auth)
+        navigate('/?gcp-iap-mode=GCIP_SIGNOUT')
+    },[auth,bool])
 
     const handleLogout = () => {
         localStorage.removeItem("authToken");
