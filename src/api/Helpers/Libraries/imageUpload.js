@@ -24,7 +24,7 @@ const storage = multer.diskStorage({
             const extentions =file.mimetype.split("/")[1]
            
             // req.savedUserPhoto ="photo_user_" +req.body.id + "."+ extentions
-            req.savedUserPhoto ="photo_user_" +req.body.id + "."+ extentions
+            req.savedUserPhoto ="photo_user_" +req.user.id+ "."+ extentions
 
             cb(null ,req.savedUserPhoto)
         }

@@ -9,7 +9,8 @@ const { authenticator } = require("../Helpers/auth/authenticator");
 
 const router = express.Router() ;
 
-router.get("/profile",performAuth ,profile)
+// router.get("/profile",performAuth ,profile)
+router.get("/profile",authenticator ,profile)
 
 router.post("/editProfile",[authenticator,imageUpload.single("photo")],editProfile)
 
