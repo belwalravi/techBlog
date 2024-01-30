@@ -11,7 +11,7 @@ router.post("/:slug", checkStoryExist, detailStory)
 
 router.get("/getAllStories",getAllStories)
 
-router.post("/addstory" ,[performAuth, imageupload.single("image")],addStory)
+router.post("/addstory" ,[imageupload.single("image")],addStory)//performAuth
 
 router.post("/:slug/like",[performAuth,checkStoryExist] ,likeStory)
 
