@@ -100,7 +100,6 @@ const EditProfile = () => {
                                                 <AiOutlineUpload />
                                                 <span>
                                                     Change Profile Photo
-
                                                 </span>
                                             </div>
                                             :
@@ -120,7 +119,6 @@ const EditProfile = () => {
                                     <div class="absolute">
                                         Currently Image
                                     </div>
-                                    {/* <img src={`http://localhost:5000/userPhotos/${previousPhoto}`} alt="userPhoto" /> */}
                                     <img src={`/userPhotos/${previousPhoto}`} alt={username ? username : "userPhoto"}/>
                                 </div>
 
