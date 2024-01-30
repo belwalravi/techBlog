@@ -21,7 +21,8 @@ router.get("/editStory/:slug",[performAuth,checkStoryExist,checkUserAndStoryExis
 
 router.put("/:slug/edit",[performAuth,checkStoryExist,checkUserAndStoryExist, imageupload.single("image")] ,editStory)
 
-router.delete("/:slug/delete",[performAuth,checkStoryExist,checkUserAndStoryExist] ,deleteStory)
+// router.delete("/:slug/delete",[performAuth,checkStoryExist,checkUserAndStoryExist] ,deleteStory)
+router.delete("/:slug/delete",[checkStoryExist,checkUserAndStoryExist] ,deleteStory)
 
 router.post("/:slug", detailStory)
 
