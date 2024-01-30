@@ -101,15 +101,15 @@ const Header = () => {
                                 }
                                 <div className="sub-profile-wrap  ">
                                     <Link className='profile-link' to="/profile"  > <FaUserEdit />  Profile </Link>
-                                    <bt>
+                                    <Link to="/?gcp-iap-mode=GCIP_SIGNOUT" >
+                                        <button className='logout-btn' onClick={handleLogout}> <BiLogOut />  Logout</button>
+                                    </Link>
+                                    <bt style={{"color": "#a10202", "fontFamily": "Saira Condensed,sans-serif", "fontSize": "1.2rem", "fontWeight": "500", "textDecoration": "none"}}>
                                         <span><BiLogOut /></span>
                                         <span>
                                             <a href='/?gcp-iap-mode=GCIP_SIGNOUT' style={{"color": "#a10202", "fontFamily": "Saira Condensed,sans-serif", "fontSize": "1.2rem", "fontWeight": "500", "textDecoration": "none"}}>Logout</a>
                                         </span>
                                     </bt>
-                                    {/* <Link to="/?gcp-iap-mode=GCIP_SIGNOUT" >
-                                        <button className='logout-btn' onClick={handleLogout}> <BiLogOut />  Logout</button>
-                                    </Link> */}
                                 </div>
                             </div>
 
