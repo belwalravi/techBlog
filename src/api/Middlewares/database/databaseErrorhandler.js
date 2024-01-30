@@ -4,7 +4,9 @@ const Story = require("../../Models/story")
 
 
 const checkStoryExist = asyncErrorWrapper(async (req,res,next) => {
-  
+    console.log("checkStoryExist body >> ",req.body)
+    console.log("checkStoryExist slug >> ",req.params)
+    
     const {slug} = req.params  ;
     const story = await Story.findOne({
       slug : slug
@@ -20,7 +22,9 @@ const checkStoryExist = asyncErrorWrapper(async (req,res,next) => {
 
 
 const checkUserAndStoryExist = asyncErrorWrapper(async(req, res, next) => {
-
+    console.log("checkUserAndStoryExist body >> ",req.body)
+    console.log("checkUserAndStoryExist slug >> ",req.params)
+    console.log("checkUserAndStoryExist user >> ",req.user)
     const {slug} =req.params 
 
     const story = await Story.findOne({
