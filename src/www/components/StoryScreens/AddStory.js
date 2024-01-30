@@ -33,6 +33,12 @@ const AddStory = () => {
         setTitle(title)
         setImage(image)
         setContent(content)
+        console.log("title",title, "image",image,"content",content)
+        setStoryPayload({
+            title,
+            image,
+            content
+        })
     },[title, image, content])
 
     const handleSubmit = async (e) => {
@@ -46,7 +52,8 @@ const AddStory = () => {
         console.log("formdata >> ",formdata)
 
         try {
-            const { data } = await axios.post("/story/addstory", formdata, config)
+            // const { data } = await axios.post("/story/addstory", formdata, config)
+            const { data } = await axios.post("/story/addstory", storyPayload, config)
             setSuccess('Add story successfully ')
 
             clearInputs()
