@@ -30,7 +30,6 @@ const AddStory = () => {
     }
 
     useEffect(()=>{  //added
-        console.log("title",title, "image",image,"content",content)
         setStoryPayload({
             title,
             image,
