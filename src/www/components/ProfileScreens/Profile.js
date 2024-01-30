@@ -32,7 +32,6 @@ const Profile = () => {
                 const { data } = await axios.get("/user/profile", config)
                 console.log("profile > ",data)
                 setUser(data.data)
-
                 setLoading(false)
             }
             catch (error) {
