@@ -30,9 +30,9 @@ const AddStory = () => {
     }
 
     useEffect(()=>{  //added
-        setTitle(title)
-        setImage(image)
-        setContent(content)
+        // setTitle(title)
+        // setImage(image)
+        // setContent(content)
         console.log("title",title, "image",image,"content",content)
         setStoryPayload({
             title,
@@ -51,8 +51,8 @@ const AddStory = () => {
         formdata.append("content", content)
 
         try {
-            // const { data } = await axios.post("/story/addstory", formdata, config)
-            const { data } = await axios.post("/story/addstory", storyPayload, config)
+            const { data } = await axios.post("/story/addstory", formdata, config)
+            // const { data } = await axios.post("/story/addstory", storyPayload, config)
             setSuccess('Add story successfully ')
 
             clearInputs()
