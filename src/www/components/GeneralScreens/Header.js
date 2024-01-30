@@ -57,7 +57,7 @@ const Header = () => {
 
     const handleLogout = () => {
         localStorage.removeItem("authToken");
-        if (process.env.IAP_ENABLED)
+        // if (process.env.IAP_ENABLED)
             navigate('/?gcp-iap-mode=GCIP_SIGNOUT')
     };
 
