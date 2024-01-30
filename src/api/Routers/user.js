@@ -12,7 +12,7 @@ router.get("/profile",performAuth ,profile)
 
 router.post("/editProfile",[imageUpload.single("photo")],editProfile)
 
-router.post("/:slug/addStoryToReadList",performAuth ,addStoryToReadList)
+router.post("/:slug/addStoryToReadList" ,addStoryToReadList) // performAuth
 
 router.get("/readList",performAuth ,readListPage)
 

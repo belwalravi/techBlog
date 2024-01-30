@@ -39,6 +39,7 @@ const addStoryToReadList = asyncErrorWrapper(async (req, res, next) => {
 
     const { slug } = req.params
     const { activeUser } = req.body;
+    console.log("AddStoryToReadList Controller >> ", activeUser)
 
     const story = await Story.findOne({ slug })
 
