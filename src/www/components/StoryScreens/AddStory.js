@@ -49,7 +49,7 @@ const AddStory = () => {
         formdata.append("image", image)
         formdata.append("content", content)
 
-        console.log("formdata >> ",formdata)
+        // console.log("formdata >> ",formdata)
 
         try {
             // const { data } = await axios.post("/story/addstory", formdata, config)
@@ -116,7 +116,7 @@ const AddStory = () => {
                         type="file"
                         ref={imageEl}
                         onChange={(e) => {
-                            setImage(e.target.files[0])
+                            setImage(e.target.files[0].name)
                         }}
                     />
                 </div>
