@@ -57,9 +57,7 @@ const Header = () => {
 
     const handleLogout = () => {
         localStorage.removeItem("authToken");
-        // setTimeout(()=>{
-        //     navigate('/?gcp-iap-mode=GCIP_SIGNOUT')
-        // },1200)
+        // navigate('/?gcp-iap-mode=GCIP_SIGNOUT')
     };
 
     return (
@@ -99,7 +97,9 @@ const Header = () => {
                                 }
                                 <div className="sub-profile-wrap  ">
                                     <Link className='profile-link' to="/profile"  > <FaUserEdit />  Profile </Link>
-                                    <button className='logout-btn' onClick={handleLogout}> <BiLogOut />  Logout</button>
+                                    <Link to="/?gcp-iap-mode=GCIP_SIGNOUT" >
+                                        <button className='logout-btn' onClick={handleLogout}> <BiLogOut />  Logout</button>
+                                    </Link>
                                 </div>
                             </div>
 
