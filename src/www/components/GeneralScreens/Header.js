@@ -20,6 +20,7 @@ const Header = () => {
     const navigate = useNavigate()
 
     useEffect(async () => {
+        console.log("activeUser >> ",activeUser)
         try {
             let config = {
                 method: 'post',
@@ -59,10 +60,6 @@ const Header = () => {
             navigate('/?gcp-iap-mode=GCIP_SIGNOUT')}
     },[auth,bool])
 
-    const handleLogout = () => {
-        localStorage.removeItem("authToken");
-        // navigate('/?gcp-iap-mode=GCIP_SIGNOUT')
-    };
 
     return (
 
@@ -71,7 +68,7 @@ const Header = () => {
 
                 <Link to="/" className="logo">
                     <h5>
-                        DemoApp
+                        DevBlogs
                     </h5>
                 </Link>
                 <SearchForm />
@@ -96,6 +93,7 @@ const Header = () => {
                                     <SkeletonElement type="minsize-avatar" />
                                     :
                                     <>
+                                        {/* <img src={`/userPhotos/${activeUser.data.photos}`} alt={username ? username : "userPhoto" } className='logo_header'/> */}
                                         <img src="https://cdn-icons-png.flaticon.com/512/5332/5332306.png" alt="Logo" className='logo_header' />
                                     </>
                                 }
