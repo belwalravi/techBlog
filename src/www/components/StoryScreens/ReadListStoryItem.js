@@ -33,9 +33,12 @@ const ReadListStoryItem = ({ story, editDate }) => {
 
                 <div className="story-med-block">
                     <div className="readList-story-title">
-                        <a href={`story/${story.slug}`}>
+                        {/* <a href={`story/${story.slug}`}>
                             {story.title}
-                        </a>
+                        </a> */}
+                        <Link to={`/story/${story.slug}`} >
+                        {story.title}
+                        </Link>
                     </div>
                     <div className="readList-story-content">
 
