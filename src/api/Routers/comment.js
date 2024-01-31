@@ -1,10 +1,7 @@
 const express = require("express")
-
 const { addNewCommentToStory ,getAllCommentByStory,commentLike ,getCommentLikeStatus} = require("../Controllers/comment")
-
 const { checkStoryExist } = require("../Middlewares/database/databaseErrorhandler");
-const { performAuth } = require("../Controllers/iapAuth");
-const { authenticator } = require("../Helpers/auth/authenticator");
+const { authenticator } = require("../Middlewares/Authorization/authenticator");
 
 const router = express.Router() ;
 

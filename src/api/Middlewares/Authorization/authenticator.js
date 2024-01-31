@@ -1,12 +1,11 @@
 const asyncErrorWrapper = require("express-async-handler");
 const { OAuth2Client } = require("google-auth-library");
-const CustomError = require("../error/CustomError");
+const CustomError = require("../../Helpers/error/CustomError");
 const {
     isJWTTokenIncluded,
     getAccessTokenJWTFromHeader,
-} = require("./jwtTokenHelper");
+} = require("../../Helpers/auth/jwtTokenHelper");
 const User = require("../../Models/user");
-const { sendToken } = require("./tokenHelpers");
 
 const authenticator = asyncErrorWrapper(async (req, res, next) => {
 

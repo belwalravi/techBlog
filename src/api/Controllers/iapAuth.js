@@ -11,9 +11,7 @@ const { sendToken } = require("../Helpers/auth/tokenHelpers");
 const performAuth = asyncErrorWrapper(async (req, res, next) => {
 
     const expectedAudience = process.env.IAP_SIGNED_HEADER;
-
-    console.log("--> cheking for verify_iap_jwt (performAuth)");
-    // console.log(req.header("x-goog-iap-jwt-assertion"))
+    // console.log("--> cheking for verify_iap_jwt (performAuth) \n",req.header("x-goog-iap-jwt-assertion"))
 
     try {
         if (!isJWTTokenIncluded(req)) { //checks if token included, returns token or thorws error

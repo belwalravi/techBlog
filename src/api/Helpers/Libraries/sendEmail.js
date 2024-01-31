@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer')
-
+//not in use currently
 const sendEmail = async (mailOptions) =>{
 
     const {SMTP_HOST,SMTP_PORT,EMAIL_USERNAME,EMAIL_PASS}=process.env
