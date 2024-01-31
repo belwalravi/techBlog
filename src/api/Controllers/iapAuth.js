@@ -7,6 +7,7 @@ const {
 } = require("../Helpers/auth/tokenHelpers");
 const User = require("../Models/user");
 const { sendToken } = require("../Helpers/auth/tokenHelpers");
+const { createUser } = require("./user");
 
 const performAuth = asyncErrorWrapper(async (req, res, next) => {
 
@@ -38,8 +39,12 @@ const performAuth = asyncErrorWrapper(async (req, res, next) => {
         // console.log("user -> ",JSON.stringify(user))
         
         if(!user && process.env?.AUTO_SIGNUP_GCIP_VERIFIED_USER)
-        {
-            console.log("-> jwt payload ",decoded_iap_jwt)
+        {   
+            console.log("creating GCIP verified user.")
+            await User.create({
+                email : userEmail,
+                username : userEmail,
+            })
         }
 
         if (!user && ! process.env?.AUTO_SIGNUP_GCIP_VERIFIED_USER) {
