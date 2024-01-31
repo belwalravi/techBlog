@@ -35,12 +35,9 @@ const DetailStory = () => {
           },
         });
         activeUser = data.user
-
         setActiveUser(activeUser)
-
       }
       catch (error) {
-        // navigate("/unauthorized")
         setActiveUser({})
       }
 
@@ -61,11 +58,8 @@ const DetailStory = () => {
           }
           else {
             setStoryReadListStatus(true)
-
           }
-
         }
-
       }
       catch (error) {
         setStory({})
