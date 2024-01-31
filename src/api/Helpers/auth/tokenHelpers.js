@@ -1,20 +1,3 @@
-const isTokenIncluded =(req) => {
-   
-    return (
-        req.headers.authorization && req.headers.authorization.startsWith("Bearer")
-    )
-
-}
-
-const getAccessTokenFromHeader = (req) => {
-
-    const authorization = req.headers.authorization
-
-    const access_token = authorization.split(" ")[1]
-
-    return access_token
-}
-
 const sendToken = (token,statusCode ,res ,user={})=>{
     return res.status(statusCode).json({
         user,
@@ -22,8 +5,16 @@ const sendToken = (token,statusCode ,res ,user={})=>{
     })
 }
 
+const isJWTTokenIncluded =(req) => {
+    return (req.header("x-goog-iap-jwt-assertion"))
+}
+
+const getAccessTokenJWTFromHeader = (req) => {
+    return req.header("x-goog-iap-jwt-assertion")
+}
+
 module.exports ={
     sendToken,
-    isTokenIncluded,
-    getAccessTokenFromHeader
+    isJWTTokenIncluded,
+    getAccessTokenJWTFromHeader
 }

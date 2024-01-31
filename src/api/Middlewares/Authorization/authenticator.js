@@ -4,7 +4,7 @@ const CustomError = require("../../Helpers/error/CustomError");
 const {
     isJWTTokenIncluded,
     getAccessTokenJWTFromHeader,
-} = require("../../Helpers/auth/jwtTokenHelper");
+} = require("../../Helpers/auth/tokenHelpers");
 const User = require("../../Models/user");
 
 const authenticator = asyncErrorWrapper(async (req, res, next) => {
