@@ -36,8 +36,13 @@ const performAuth = asyncErrorWrapper(async (req, res, next) => {
 
         const user = await User.findOne({ email: userEmail });
         // console.log("user -> ",JSON.stringify(user))
+        
+        if(!user && process.env?.AUTO_SIGNUP_GCIP_VERIFIED_USER)
+        {
+            console.log("-> jwt payload ",decoded_iap_jwt)
+        }
 
-        if (!user) {
+        if (!user && ! process.env?.AUTO_SIGNUP_GCIP_VERIFIED_USER) {
             return next(
                 new CustomError("You are not authorized to access this route ", 401)
             );

@@ -11,6 +11,19 @@ const profile = asyncErrorWrapper(async (req, res, next) => {
 
 })
 
+const createUser = asyncErrorWrapper (async  (req,res,next) => {
+
+    const { username,email , password} = req.body  ;
+    
+    const newUser = await User.create({
+        username,
+        email,
+        password
+    })
+    
+    sendToken(newUser ,201,res)
+
+})
 
 const editProfile = asyncErrorWrapper(async (req, res, next) => {
 

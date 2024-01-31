@@ -14,7 +14,7 @@ const UserSchema = new mongoose.Schema({
     },
     photo : {
         type : String,
-        default : "user.png"
+        default : "user-img.png"
     },
     email : {
         type: String ,
@@ -25,7 +25,6 @@ const UserSchema = new mongoose.Schema({
     password : {
         type:String,
         minlength: [6, "Please provide a password with min length : 6 "],
-        required: [true, "Please provide a password"],
         select: false
     },
     role: {
