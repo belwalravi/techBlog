@@ -49,7 +49,7 @@ const performAuth = asyncErrorWrapper(async (req, res, next) => {
             );
         }
 
-        sendToken(res, user, 200);
+        sendToken(res, user, next, 200);
 
     } catch (error) {
         console.log(error);

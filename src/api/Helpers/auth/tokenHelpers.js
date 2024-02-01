@@ -1,6 +1,6 @@
 const CustomError = require("../error/CustomError");
 
-const sendToken = (res ,user={}, statusCode)=>{
+const sendToken = (res, next ,user={}, statusCode)=>{
 
     if(!user)
     {  
