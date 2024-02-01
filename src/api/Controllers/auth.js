@@ -3,17 +3,8 @@ const { performAuth } = require("./iapAuth");
 
 const getPrivateData = asyncErrorWrapper((req, res, next) => {
     performAuth(req, res, next)
-
-})
-
-const login = asyncErrorWrapper(async (req, res, next) => {
-
-    if (process.env.IAP_ENABLED !== "false") {
-        performAuth(req, res, next)
-    }
 })
 
 module.exports = {
-    login,
     getPrivateData
 }
