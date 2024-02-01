@@ -7,7 +7,6 @@ const {
 } = require("../Helpers/auth/tokenHelpers");
 const User = require("../Models/user");
 const { sendToken } = require("../Helpers/auth/tokenHelpers");
-const { createUser } = require("./user");
 
 const performAuth = asyncErrorWrapper(async (req, res, next) => {
 
@@ -46,11 +45,11 @@ const performAuth = asyncErrorWrapper(async (req, res, next) => {
 
         if (!user && ! process.env?.AUTO_SIGNUP_GCIP_VERIFIED_USER == true) {
             return next(
-                new CustomError("You are not authorized to access this route ", 401)
+                new CustomError("Not authorized", 401)
             );
         }
 
-        sendToken(iapAccessToken, 200, res, user);
+        sendToken(res, user, 200);
 
     } catch (error) {
         console.log(error);
