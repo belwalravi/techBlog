@@ -11,8 +11,7 @@ const { createUser } = require("./user");
 
 const performAuth = asyncErrorWrapper(async (req, res, next) => {
 
-    const expectedAudience = process.env.IAP_SIGNED_HEADER;
-    // console.log("--> cheking for verify_iap_jwt (performAuth) \n",req.header("x-goog-iap-jwt-assertion"))
+    const expectedAudience = process.env.IAP_SIGNED_HEADER;     // console.log("--> cheking for verify_iap_jwt (performAuth) \n",req.header("x-goog-iap-jwt-assertion"))
 
     try {
         if (!isJWTTokenIncluded(req)) { //checks if token included, returns token or thorws error
@@ -32,13 +31,11 @@ const performAuth = asyncErrorWrapper(async (req, res, next) => {
             ["https://cloud.google.com/iap"] //certs_url
         );
 
-        // console.log("-> jwt payload decoded ",decoded_iap_jwt)
-        var userEmail = decoded_iap_jwt.payload.gcip.email;
+        var userEmail = decoded_iap_jwt.payload.gcip.email;     // console.log("-> jwt payload decoded ",decoded_iap_jwt)
 
-        const user = await User.findOne({ email: userEmail });
-        // console.log("user -> ",JSON.stringify(user))
+        const user = await User.findOne({ email: userEmail });  // console.log("user -> ",JSON.stringify(user))
         
-        if(!user && process.env?.AUTO_SIGNUP_GCIP_VERIFIED_USER)
+        if(!user && process.env?.AUTO_SIGNUP_GCIP_VERIFIED_USER == true)
         {   
             console.log("creating GCIP verified user.")
             await User.create({
@@ -47,7 +44,7 @@ const performAuth = asyncErrorWrapper(async (req, res, next) => {
             })
         }
 
-        if (!user && ! process.env?.AUTO_SIGNUP_GCIP_VERIFIED_USER) {
+        if (!user && ! process.env?.AUTO_SIGNUP_GCIP_VERIFIED_USER == true) {
             return next(
                 new CustomError("You are not authorized to access this route ", 401)
             );
