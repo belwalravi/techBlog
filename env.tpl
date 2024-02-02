@@ -5,7 +5,7 @@ SERVER = 5000
 #mongo db uri
 MONGO_URI ="mongodb+srv://admin:admin@blogtest.abi8stb.mongodb.net/"
 
-IAP_SIGNED_HEADER = '/projects/221085558358/global/backendServices/1971514159507936399'
-TENANT_ADM_USER = ''
+IAP_SIGNED_HEADER =  '${_IAP_SIGNED_HEADER}'
+TENANT_ADM_USER = '${_CUSTOMER_EMAIL}'
 
 AUTO_SIGNUP_GCIP_VERIFIED_USER = true
