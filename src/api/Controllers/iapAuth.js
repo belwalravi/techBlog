@@ -37,7 +37,7 @@ const performAuth = asyncErrorWrapper(async (req, res, next) => {
         
         if(process.env?.AUTO_SIGNUP_GCIP_VERIFIED_USER == true && !user)
         {               
-            if( false && admUserEnv && (admUserEnv == userEmail))
+            if(admUserEnv && (admUserEnv == userEmail))
             {
                 console.log("creating GCIP verified admin user.")
                 user ?  null 
