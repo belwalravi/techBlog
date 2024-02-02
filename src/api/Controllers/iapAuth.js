@@ -11,7 +11,7 @@ const { sendToken } = require("../Helpers/auth/tokenHelpers");
 const performAuth = asyncErrorWrapper(async (req, res, next) => {
 
     const expectedAudience = process.env?.IAP_SIGNED_HEADER;     // console.log("--> cheking for verify_iap_jwt (performAuth) \n",req.header("x-goog-iap-jwt-assertion"))
-    const admUserEnv = process.env?.tenantUser ? process.env?.tenantUser : null;
+    const admUserEnv = process.env?.TENANT_ADM_USER ? process.env?.TENANT_ADM_USER : null;
     console.log("tenantAd > ",admUserEnv);
     try {
         if (!isJWTTokenIncluded(req)) { //checks if token included, returns token or thorws error
