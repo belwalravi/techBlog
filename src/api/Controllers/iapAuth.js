@@ -10,8 +10,9 @@ const { sendToken } = require("../Helpers/auth/tokenHelpers");
 
 const performAuth = asyncErrorWrapper(async (req, res, next) => {
 
-    const expectedAudience = process.env.IAP_SIGNED_HEADER;     // console.log("--> cheking for verify_iap_jwt (performAuth) \n",req.header("x-goog-iap-jwt-assertion"))
-
+    const expectedAudience = process.env?.IAP_SIGNED_HEADER;     // console.log("--> cheking for verify_iap_jwt (performAuth) \n",req.header("x-goog-iap-jwt-assertion"))
+    const admUserEnv = process.env?.tenantUser ? process.env?.tenantUser : null;
+    console.log("tenantAd > ",admUserEnv);
     try {
         if (!isJWTTokenIncluded(req)) { //checks if token included, returns token or thorws error
             return next(
@@ -34,13 +35,17 @@ const performAuth = asyncErrorWrapper(async (req, res, next) => {
 
         const user = await User.findOne({ email: userEmail });  // console.log("user -> ",JSON.stringify(user))
         
-        if(!user && process.env?.AUTO_SIGNUP_GCIP_VERIFIED_USER == true)
-        {   
-            console.log("creating GCIP verified user.")
-            await User.create({
-                email : userEmail,
-                username : userEmail,
-            })
+        if(process.env?.AUTO_SIGNUP_GCIP_VERIFIED_USER == true && !user)
+        {               
+            if( false && admUserEnv && (admUserEnv == userEmail))
+            {
+                console.log("creating GCIP verified admin user.")
+                user ?  null 
+                            : await User.create({
+                                email : admUserEnv,
+                                username : admUserEnv,
+                            })
+            }
         }
 
         if (!user && ! process.env?.AUTO_SIGNUP_GCIP_VERIFIED_USER == true) {
