@@ -1,6 +1,7 @@
 import React from 'react'
 import { AiFillStar } from 'react-icons/ai'
 import { BsThreeDots, BsBookmarkFill } from 'react-icons/bs'
+import { Link } from 'react-router-dom';
 
 const ReadListStoryItem = ({ story, editDate }) => {
 
@@ -32,9 +33,12 @@ const ReadListStoryItem = ({ story, editDate }) => {
 
                 <div className="story-med-block">
                     <div className="readList-story-title">
-                        <a href={`story/${story.slug}`}>
+                        {/* <a href={`story/${story.slug}`}>
                             {story.title}
-                        </a>
+                        </a> */}
+                        <Link to={`/story/${story.slug}`} >
+                        {story.title}
+                        </Link>
                     </div>
                     <div className="readList-story-content">
 
@@ -45,7 +49,7 @@ const ReadListStoryItem = ({ story, editDate }) => {
                 </div>
 
                 <div className="story-bottom-block">
-                    <a href={`story/${story.slug}`}>
+                    <Link to={`/story/${story.slug}`} >
                         <span>
                             Read More
                         </span>
@@ -55,7 +59,19 @@ const ReadListStoryItem = ({ story, editDate }) => {
                         <span>
                             {story.readtime} min read
                         </span>
-                    </a>
+                    </Link>
+
+                    {/* <a href={`story/${story.slug}`}>
+                        <span>
+                            Read More
+                        </span>
+                        <span>
+                            -
+                        </span>
+                        <span>
+                            {story.readtime} min read
+                        </span>
+                    </a> */}
 
                     <div>
 

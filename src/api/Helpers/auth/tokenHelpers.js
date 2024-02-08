@@ -1,33 +1,28 @@
-const isTokenIncluded =(req) => {
-   
-    return (
-        req.headers.authorization && req.headers.authorization.startsWith("Bearer")
-    )
+const CustomError = require("../error/CustomError");
 
-}
+const sendToken = (res, user, next, statusCode)=>{
 
-const getAccessTokenFromHeader = (req) => {
+    if(!user)
+    {  
+        return next(new CustomError("Not authorized", 401));
+    }
 
-    const authorization = req.headers.authorization
-
-    const access_token = authorization.split(" ")[1]
-
-    return access_token
-}
-
-const sendToken = (user,statusCode ,res)=>{
-
-    const token = user.generateJwtFromUser()
-
-    return res.status(statusCode).json({
-        success: true ,
-        token
+    else return res.status(statusCode).json({
+        user,
+        success: true 
     })
+}
 
+const isJWTTokenIncluded =(req) => {
+    return (req.header("x-goog-iap-jwt-assertion"))
+}
+
+const getAccessTokenJWTFromHeader = (req) => {
+    return req.header("x-goog-iap-jwt-assertion")
 }
 
 module.exports ={
     sendToken,
-    isTokenIncluded,
-    getAccessTokenFromHeader
+    isJWTTokenIncluded,
+    getAccessTokenJWTFromHeader
 }

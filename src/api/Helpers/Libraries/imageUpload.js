@@ -23,7 +23,8 @@ const storage = multer.diskStorage({
         if(file.fieldname ==="photo"){
             const extentions =file.mimetype.split("/")[1]
            
-            req.savedUserPhoto ="photo_user_" +req.user.id + "."+ extentions
+            // req.savedUserPhoto ="photo_user_" +req.body.id + "."+ extentions
+            req.savedUserPhoto ="photo_user_" +req.user.id+ "."+ extentions
 
             cb(null ,req.savedUserPhoto)
         }
@@ -44,7 +45,7 @@ const fileFilter =(req,file,cb ) => {
     allowedMimeTypes = ["image/jpeg","image/jpg","image/png","image/gif"]
 
     if (!allowedMimeTypes.includes(file.mimetype)) {
-        return (new CustomError("Please provide a valid image file ",400),null )
+        return (new CustomError("Please provide a valid image file, please check ",400),null )
     }
     
     cb(null , true ) ;

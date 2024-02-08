@@ -1,23 +1,17 @@
 const express = require("express")
-
 const imageUpload = require("../Helpers/Libraries/imageUpload");
-
-const {profile,editProfile,changePassword,addStoryToReadList,readListPage} = require("../Controllers/user");
-const { getAccessToRoute } = require("../Middlewares/Authorization/auth");
-
+const {profile,editProfile,addStoryToReadList,readListPage} = require("../Controllers/user");
+const { authenticator } = require("../Middlewares/Authorization/authenticator");
 
 const router = express.Router() ;
 
-router.get("/profile",getAccessToRoute ,profile)
+router.get("/profile",authenticator ,profile)
 
-router.post("/editProfile",[getAccessToRoute ,imageUpload.single("photo")],editProfile)
+router.post("/editProfile",[authenticator,imageUpload.single("photo")],editProfile)
 
-router.put("/changePassword",getAccessToRoute,changePassword)
+router.post("/:slug/addStoryToReadList" ,addStoryToReadList) // performAuth
 
-router.post("/:slug/addStoryToReadList",getAccessToRoute ,addStoryToReadList)
-
-router.get("/readList",getAccessToRoute ,readListPage)
-
+router.get("/readList",authenticator ,readListPage)
 
 
 module.exports = router

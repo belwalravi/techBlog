@@ -55,13 +55,13 @@ const ReadListPage = () => {
 
                     <div className="readList-top-block">
 
-                        <img src={`/userPhotos/${activeUser.photo}`} alt={activeUser.username} />
-
+                        {/* <img src={`/userPhotos/${activeUser.photo}`} alt={activeUser.username} /> */}
 
                         <div className='activeUser-info-wrapper'>
 
                             <b>
                                 {activeUser.username}
+                                {/* {JSON.stringify(readList)} */}
                             </b>
 
                             <div>

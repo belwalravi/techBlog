@@ -108,7 +108,8 @@ const EditStory = () => {
                                 <div class="absolute">
                                     Currently Image
                                 </div>
-                                <img src={`http://localhost:5000/storyImages/${previousImage}`} alt="storyImage" />
+                                <img src={`/storyImages/${previousImage}`} alt={title} />
+
                             </div>
                             <div class="StoryImageField">
                                 <AiOutlineUpload />

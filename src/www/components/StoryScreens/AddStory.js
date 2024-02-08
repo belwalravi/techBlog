@@ -1,4 +1,4 @@
-import React, { useRef, useContext } from 'react'
+import React, { useRef, useContext, useEffect } from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
@@ -11,7 +11,7 @@ import '../../Css/AddStory.css'
 
 const AddStory = () => {
 
-    const { config } = useContext(AuthContext)
+    const { config, activeUser } = useContext(AuthContext)
     const imageEl = useRef(null)
     const editorEl = useRef(null)
     const [image, setImage] = useState('')
@@ -19,6 +19,7 @@ const AddStory = () => {
     const [content, setContent] = useState('')
     const [success, setSuccess] = useState('')
     const [error, setError] = useState('')
+    const [storyPayload, setStoryPayload] = useState(null)
 
     const clearInputs = () => {
         setTitle('')
@@ -27,6 +28,15 @@ const AddStory = () => {
         editorEl.current.editor.setData('')
         imageEl.current.value = ""
     }
+
+    useEffect(()=>{  //added
+        setStoryPayload({
+            title,
+            image,
+            content,
+            "_id":activeUser._id
+        })
+    },[title, image, content])
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -37,6 +47,7 @@ const AddStory = () => {
 
         try {
             const { data } = await axios.post("/story/addstory", formdata, config)
+            // const { data } = await axios.post("/story/addstory", storyPayload, config)
             setSuccess('Add story successfully ')
 
             clearInputs()
@@ -48,7 +59,6 @@ const AddStory = () => {
         catch (error) {
             setTimeout(() => {
                 setError('')
-
             }, 7000)
             setError(error.response.data.error)
 
@@ -105,7 +115,7 @@ const AddStory = () => {
                     />
                 </div>
                 <button type='submit' disabled={image ? false : true} className={image ? 'addStory-btn' : 'dis-btn'}
-                >Publish </button>
+                >Publish Now </button>
             </form>
 
         </div>

@@ -30,9 +30,7 @@ const Profile = () => {
 
             try {
                 const { data } = await axios.get("/user/profile", config)
-
                 setUser(data.data)
-
                 setLoading(false)
             }
             catch (error) {
@@ -56,10 +54,9 @@ const Profile = () => {
                         <div className="profile-top-wrap">
 
                             <span>
-                                Membership Information
+                                User Information
                             </span>
 
-                            <a href="#!">Close  Account</a>
                         </div>
                         <ul>
 
@@ -92,11 +89,6 @@ const Profile = () => {
                             <button className='profileEditBtn'>
                                 <Link to="/edit_profile">
                                     Edit Profile
-                                </Link>
-                            </button>
-                            <button className='changePassBtn'>
-                                <Link to="/change_password">
-                                    Change Password
                                 </Link>
                             </button>
                         </div>

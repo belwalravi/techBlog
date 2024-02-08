@@ -14,6 +14,7 @@ const EditProfile = () => {
     const [username, setUsername] = useState('')
     const [email, setEmail] = useState('')
     const [photo, setPhoto] = useState('')
+    const [id, setId] = useState("")
     const [previousPhoto, setPreviousPhoto] = useState('')
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
@@ -25,6 +26,7 @@ const EditProfile = () => {
         formdata.append("username", username)
         formdata.append("email", email)
         formdata.append("photo", photo)
+        formdata.append("id",id)
 
         try {
             const { data } = await axios.post("/user/editProfile", formdata, config)
@@ -47,6 +49,7 @@ const EditProfile = () => {
         setEmail(activeUser.email)
         setPreviousPhoto(activeUser.photo)
         setPhoto(activeUser.photo)
+        setId(activeUser._id)
         setTimeout(() => {
             setLoading(false)
         }, 1050)
@@ -78,6 +81,7 @@ const EditProfile = () => {
                                 <input type="email"
                                     id="email" placeholder="Email  " name='email'
                                     value={email}
+                                    disabled={true}
                                     onChange={(e) => setEmail(e.target.value)}
                                 />
                                 <label htmlFor="email">E-mail</label>
@@ -95,7 +99,6 @@ const EditProfile = () => {
                                                 <AiOutlineUpload />
                                                 <span>
                                                     Change Profile Photo
-
                                                 </span>
                                             </div>
                                             :
@@ -110,33 +113,19 @@ const EditProfile = () => {
                                             setPhoto(e.target.files[0])
                                         }}
                                     />
-
-
                                 </div>
-
-
                                 <div class="currentImage">
                                     <div class="absolute">
                                         Currently Image
                                     </div>
-                                    <img src={`http://localhost:5000/userPhotos/${previousPhoto}`} alt="userPhoto" />
+                                    <img src={`/userPhotos/${previousPhoto}`} alt={username ? username : "userPhoto"}/>
                                 </div>
 
                             </div>
 
                             <button type='submit' className='editprofile-btn'
                             >Edit Profile </button>
-
-
-
                         </form>
-
-
-
-
-
-
-
                     </div>
             }
         </>

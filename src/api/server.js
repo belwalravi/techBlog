@@ -20,9 +20,14 @@ app.use(cors());
 
 app.use("/", IndexRoute);
 
+app.use((req, res, next) => {
+	console.log(`API requested: ${req.method} ${req.url}`);
+	next();
+  });
+
 app.use(customErrorHandler);
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.SERVER;
 
 app.use(express.static(path.join(__dirname, "public"))); //
 
