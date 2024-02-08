@@ -7,7 +7,7 @@ const sendToken = (res, user, next, statusCode)=>{
         return next(new CustomError("Not authorized", 401));
     }
 
-    return res.status(statusCode).json({
+    else return res.status(statusCode).json({
         user,
         success: true 
     })

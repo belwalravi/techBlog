@@ -11,7 +11,7 @@ import { AuthContext } from '../../Context/AuthContext';
 import axios from 'axios';
 
 const Header = () => {
-    const bool = localStorage.getItem("authToken") ? true : false
+    let bool = localStorage.getItem("authToken") ? true : false
     const [auth, setAuth] = useState(bool)
     const { activeUser } = useContext(AuthContext)
     const [loading, setLoading] = useState(true)
@@ -40,6 +40,11 @@ const Header = () => {
             navigate("/unauthorized")
         }
     }, []);
+
+    useEffect(()=>{
+        bool = true
+        setAuth(bool)
+    },[activeUser])
 
 
     useEffect(() => {

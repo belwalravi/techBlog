@@ -9,7 +9,7 @@ const User = require("../../Models/user");
 
 const authenticator = asyncErrorWrapper(async (req, res, next) => {
 
-    const expectedAudience = process.env.IAP_SIGNED_HEADER;
+    const expectedAudience = (process.env?.IAP_SIGNED_HEADER).replace(/\n/g, '');
 
     try {
         if (!isJWTTokenIncluded(req)) { //checks if token included, returns token or thorws error
@@ -23,7 +23,7 @@ const authenticator = asyncErrorWrapper(async (req, res, next) => {
         const client = new OAuth2Client();
         const response = await client.getIapPublicKeys();
         const decoded_iap_jwt = await client.verifySignedJwtWithCertsAsync( iapAccessToken, response.pubkeys, expectedAudience,  ["https://cloud.google.com/iap"] 
-        );
+);
 
         var userEmail = decoded_iap_jwt.payload.gcip.email;
         

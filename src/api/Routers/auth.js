@@ -1,9 +1,8 @@
 const express = require("express")
-
-const {getPrivateData} = require("../Controllers/auth");
+const { performAuth } = require("../Controllers/iapAuth");
 
 const router = express.Router() ;
 
-router.get("/private",getPrivateData)
+router.get("/private",performAuth)
 
 module.exports = router
